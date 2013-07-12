@@ -61,6 +61,7 @@ static int spacefree(struct scull_pipe *dev);
 
 static int scull_p_open(struct inode *inode, struct file *filp)
 {
+        PDEBUG("scull_p_open.\n");	
 	struct scull_pipe *dev;
 
 	dev = container_of(inode->i_cdev, struct scull_pipe, cdev);
@@ -94,6 +95,7 @@ static int scull_p_open(struct inode *inode, struct file *filp)
 
 static int scull_p_release(struct inode *inode, struct file *filp)
 {
+        PDEBUG("scull_p_release.\n");	
 	struct scull_pipe *dev = filp->private_data;
 
 	/* remove this filp from the asynchronously notified filp's */
